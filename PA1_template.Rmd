@@ -8,7 +8,6 @@ Loading necessary packages to start the work.
 library(ggplot2)
 library(dplyr)
 library(lubridate)
-library(knitr)
 setwd("C:\\Users\\barca\\Desktop\\DATA SCIENCE\\Reproducible Research week 2") # Change to your WD if necessary. 
 ```
 
