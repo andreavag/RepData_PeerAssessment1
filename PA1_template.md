@@ -1,7 +1,7 @@
 Project 1
 =========
 
-##Setup
+## Setup
 
 Loading necessary packages to start the work.
 
@@ -19,7 +19,7 @@ Loading and doing some transformations with data.
 stepsData <- tbl_df(read.csv("activity.csv", header = T, na.strings = "NA", col.names = c("Steps", "Date", "Interval")))
 stepsData$Date <- ymd(stepsData$Date)
 ```
-##Part 1 - Total steps
+## Part 1 - Total steps
 Calculating total number of steps by days and building a histogram using ggplot2 package.
 
 
@@ -42,7 +42,7 @@ data.frame(mean = mean(sums), median = median(sums))
 ```
 
 
-##Part 2 - Time Series plot
+## Part 2 - Time Series plot
 Now we will construct a time-series plot with 5 minutes interval. Before that, we will use the group_by dplyr function to find the means of the 5-minute intervals.
 
 
@@ -56,7 +56,7 @@ ggplot(stepsint, aes(Interval, MeanSteps)) + geom_line()
 
 
 
-##Part 3 - Missing Values
+## Part 3 - Missing Values
 Now we will work to substitute missing values from *stepsData*.
 
 Number of NA rows:
@@ -115,7 +115,7 @@ ggplot(as.data.frame(sumsnew), aes(sumsnew)) + labs(title = "Steps histogram", x
 
 As we can see, the values of the mean and median increase after substitution. However, the histogram didn't change dramatically after te NA manipulation.
 
-##Part 4 - Weekdays/Weekends
+## Part 4 - Weekdays/Weekends
 
 Adding factor variable, which will differ weekdays from weekends.
 
@@ -124,8 +124,8 @@ Adding factor variable, which will differ weekdays from weekends.
 stepsData <- mutate(stepsData, Weekday = weekdays(Date))
 
 for(i in 1:length(stepsData$Steps)) {
- if(stepsData$Weekday[i] == "ñóááîòà") {stepsData$Weekday[i] = "weekend"
-   }else if (stepsData$Weekday[i] == "âîñêðåñåíüå") {stepsData$Weekday[i]                                                      = "weekend"
+ if(stepsData$Weekday[i] == "Ã±Ã³Ã¡Ã¡Ã®Ã²Ã ") {stepsData$Weekday[i] = "weekend"
+   }else if (stepsData$Weekday[i] == "Ã¢Ã®Ã±ÃªÃ°Ã¥Ã±Ã¥Ã­Ã¼Ã¥") {stepsData$Weekday[i]                                                      = "weekend"
          }else {stepsData$Weekday[i] = "weekday"}
                                     }
         
